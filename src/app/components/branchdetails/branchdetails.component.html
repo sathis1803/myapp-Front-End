@@ -1,0 +1,18 @@
+<h2>Branch Details</h2>
+
+<hr />
+<div *ngIf="branch">
+
+
+    <div>
+        <label><b>Branch Name</b></label> {{branch.branchName}}
+    </div>
+    <div>
+        <label><b>Branch City</b></label> {{branch.branchCity}}
+    </div>
+    
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back</button><br>

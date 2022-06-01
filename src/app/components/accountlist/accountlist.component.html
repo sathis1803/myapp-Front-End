@@ -1,0 +1,47 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Account List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Acc No</th>
+                    <th>AccHolder Name</th>
+                    <th>Date</th>
+                    <th>Balance</th>
+                    <th>Mobile No</th>
+                    <th>Pan No</th>
+                    <th>AccType</th>
+                    <th>AccStatus</th>
+                    <th>Branch Id</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let account of accounts | async">
+                    <td>{{account.accNo}}</td>
+                    <td>{{account.accHolderName}}</td>
+                    <td>{{account.accOpenDate}}</td>
+                    <td>{{account.balance}}</td>
+                    <td>{{account.mobileNo}}</td>
+                    <td>{{account.panNo}}</td>
+                    <td>{{account.accType}}</td>
+                    <td>{{account.accStatus}}</td>                    
+                    <td>{{account}}</td>
+    
+                    
+                    <td>
+                        <!-- <button (click)="deleteBranch(branch.branchId)" class="btn btn-danger">Delete</button>
+                        <button (click)="branchDetails(branch.branchId)" class="btn btn-info"
+                            style="margin-left: 10px">Details</button>
+
+                        <button (click)="createAccount(branch.branchId)" class="btn btn-primary" style="margin-left: 10px">Create Account</button> -->
+                    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

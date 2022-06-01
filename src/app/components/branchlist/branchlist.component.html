@@ -1,0 +1,34 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h2>Branch List</h2>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Branch Name</th>
+                    <th>Branch City</th>
+                    <th>Branch Id</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let branch of branches | async">
+                    <td>{{branch.branchName}}</td>
+                    <td>{{branch.branchCity}}</td>
+                    <td>{{branch.branchId}}</td>
+                    
+                    <td><button (click)="deleteBranch(branch.branchId)" class="btn btn-danger">Delete</button>
+                        <button (click)="branchDetails(branch.branchId)" class="btn btn-info"
+                            style="margin-left: 10px">Details</button>
+
+                            <button (click)="createAccount(branch.branchId)" class="btn btn-primary" style="margin-left: 10px">Create Account</button>
+                    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- <app-item-detail [item]="currentItem"></app-item-detail>
+<app-createaccount [item]="branch.branchId"></app-createaccount> -->

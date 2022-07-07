@@ -5,6 +5,7 @@ export class Transaction{
         transId!:number;
         transType!:boolean;
         accNo!:number;
+        branchId!:number;
         transAmount!:number;
         localDateTime!:Date;
         account: Account={

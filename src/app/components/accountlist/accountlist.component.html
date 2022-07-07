@@ -15,6 +15,7 @@
                         <th>Pan No</th>
                         <th>AccType</th>
                         <th>AccStatus</th>
+                        <th>Branch Id</th>
                         <th style="text-align: center;">Actions</th>
                     </tr>
                 </thead>
@@ -27,7 +28,8 @@
                         <td>{{account.mobileNo}}</td>
                         <td>{{account.panNo}}</td>
                         <td>{{account.accType}}</td>                       
-                        <td>{{account.accStatus==true?'Active':'Inactive'}}</td>                                       
+                        <td>{{account.accStatus==true?'Active':'Inactive'}}</td> 
+                        <td>{{account.branchId}}</td>                                      
                         <td>
                             <button (click)="onView(this.account.accNo)" class="btn btn-color">View</button>&nbsp;
                             <button (click)="onUpdate(this.account.accNo,this.account.mobileNo)" class="btn btn-color">Update Mobile</button>&nbsp;

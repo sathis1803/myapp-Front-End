@@ -9,6 +9,7 @@
                     <tr>
                         <th>Transaction Id</th>
                         <th>Acc No</th>
+                        <th>Branch Id</th>
                         <th>Transaction Amount</th>
                         <th>Type Of Transaction</th>
                         <th>Date</th>
@@ -20,6 +21,7 @@
                     <tr *ngFor="let transaction of transactions | async">
                         <td>{{transaction.transId}}</td>
                         <td>{{transaction.accNo}}</td>
+                        <td>{{transaction.branchId}}</td>             
                         <td>Rs.{{transaction.transAmount}}</td>
                         <td>{{transaction.transType==true?'Credited':'Debited'}}</td>
                         <td>{{transaction.localDateTime | date:"dd/MM/yyyy"}}</td>

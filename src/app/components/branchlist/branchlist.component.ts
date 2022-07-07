@@ -48,6 +48,7 @@ export class BranchlistComponent implements OnInit {
   createAccount(branchId: number){
     this.branchid = branchId;
     this.accountservice.setBranchId(branchId);
+    console.log(branchId);
    
     this.router.navigate(['home/branch/addaccount',branchId])
   }

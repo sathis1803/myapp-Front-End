@@ -68,6 +68,7 @@ export class ViewaccountComponent implements OnInit {
       console.log(data)
 
       this.successMessage = data;
+      console.log("dummy");
       this.setPostDataSuccess(this.successMessage);
       this.errorMessages = "";
         this.timer = setTimeout(this.toggleLoadingSuccess.bind(this), 3000);

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { AccountserviceService } from '../createaccount/accountservice.service';
 import { BranchserviceService } from '../createbranch/branchservice.service';
@@ -16,10 +17,14 @@ export class BranchlistComponent implements OnInit {
 
     branchid:number=0;
   constructor(private branchservice: BranchserviceService,private accountservice: AccountserviceService,
-    private router: Router) { }
+    private router: Router,private cookies:CookieService) { }
 
   ngOnInit() {
-    this.reloadData();
+    const jwtToken = this.cookies.get('jwt_token');
+    if(!jwtToken){
+      this.router.navigate(['login']);
+    }
+      this.reloadData();
   }
 
   reloadData() {
@@ -44,7 +49,7 @@ export class BranchlistComponent implements OnInit {
     this.branchid = branchId;
     this.accountservice.setBranchId(branchId);
    
-    this.router.navigate(['/branch',branchId,'addaccount'])
+    this.router.navigate(['home/branch/addaccount',branchId])
   }
 
 }

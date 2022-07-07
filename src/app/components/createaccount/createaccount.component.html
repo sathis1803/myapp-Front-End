@@ -1,67 +1,78 @@
-
-<div [hidden]="submitted">
-    <form (ngSubmit)="onSubmit()" style="border: none;">
+<div>
+    <form (ngSubmit)="onSubmit()" style="border: none;margin-top: 20px;">
         <div class="container">
             <div class="row">
                 <div class="col"></div>
 
-                <div class="col">
-                    <h3 style="text-align: center;">Create Account</h3>
-                    <div class="form-group">
-                        <label for="name">Acc Holder Name</label>
-                        <input type="text" class="form-control" id="firstName" required [(ngModel)]="account.accHolderName"
-                            name="firstName">
+                <div class="col cusborder">
+                    <div class="hel">
+                        <h3 style="text-align: center;font-style: italic;">Create Account</h3>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="accholname">Acc Holder Name</label>
+                            <input type="text" name="accHolderName" id="accHolderName" autocomplete="off"
+                                placeholder="Account Holder Name" class="form-control" required #accHolderName="ngModel"
+                                [(ngModel)]="account.accHolderName">
+                        </div>
+                        <div *ngIf="!accHolderName?.valid && (accHolderName?.dirty || accHolderName?.touched) || onError" class="error">
+                            <div *ngIf="accHolderName.errors" class="form-control-label text-muted change">
+                                <span style="color: red;">Account Holder Name is required</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="balance">Balance</label>
+                            <input type="number" class="form-control" id="balance" autocomplete="off"
+                                [(ngModel)]="account.balance" name="balance" placeholder="0.0" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="mobileno">Mobile Number</label>
+                            <input type="text" class="form-control" id="mobileno" minlength="10" maxlength="10" autocomplete="off" required
+                                #mobileno="ngModel" [(ngModel)]="account.mobileNo" placeholder="Mobile Number"
+                                name="mobileno">
+                        </div>
+                        <div *ngIf="!mobileno?.valid && (mobileno?.dirty || mobileno?.touched) || onError" class="error">
+                            <div *ngIf="mobileno.errors" class="form-control-label text-muted change">
+                                <span style="color: red;">10 digit Valid Mobile Number is Required</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="panno">Pan Number</label>
+                            <input type="text" class="form-control" id="panno" autocomplete="off"
+                               required #panno="ngModel" [(ngModel)]="account.panNo" placeholder="Pan Number" name="panno">
+                        </div>
+                        <div *ngIf="!panno?.valid && (panno?.dirty || panno?.touched) || onError" class="error">
+                            <div *ngIf="panno.errors" class="form-control-label text-muted change">
+                            <span style="color: red;">Pan Number is required</span> 
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="accType">Account Type</label>&nbsp;
+                            <select name="accType" id="accType" required #accType="ngModel" [(ngModel)]="account.accType" class="form-control">
+                                <option value="Savings">Savings</option>
+                                <option value="Current">Current</option>
+                            </select>
+                        </div>
+                        <div *ngIf="!accType?.valid && (accType?.dirty || accType?.touched) || onError" class="error">
+                            <div *ngIf="accType.errors" class="form-control-label text-muted change">
+                            <span style="color: red;">Account Type is required</span> 
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="accStatus">Account Status</label>&nbsp;
+                            <select name="accStatus" id="accStatus" [(ngModel)]="account.accStatus"
+                                class="form-control">
+                                <option value="true">Active</option>
+                                <option value="false">InActive</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-color">Submit</button><br><br>
                     </div>
-            
-                   
-                    <div class="form-group">
-                        <label for="name">Balance</label>
-                        <input type="number" class="form-control" id="lastName" required [(ngModel)]="account.balance"
-                            name="lastName" placeholder="0.0" disabled>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name">Mobile Number</label>
-                        <input type="text" class="form-control" id="lastName" required [(ngModel)]="account.mobileNo"
-                            name="lastName">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name">Pan Number</label>
-                        <input type="text" class="form-control" id="lastName" required [(ngModel)]="account.panNo"
-                            name="lastName">
-                    </div><br>
-
-                    <div class="form-group">
-                        <label for="name">Account Type</label>&nbsp;
-                        <select name="accType" id="accType" [(ngModel)]="account.accType">
-                            <option value="Savings">Savings</option>
-                            <option value="Current">Current</option>
-                        </select>
-                    </div><br>
-
-                    <div class="form-group">
-                        <label for="name">Account Status</label>&nbsp;
-                        <select name="accStatus" id="accStatus" [(ngModel)]="account.accStatus">
-                            <option value="true">Active</option>
-                            <option value="false">InActive</option>
-                        </select>
-                    </div><br>
-
-
-                    <!-- <div class="form-group">
-                        <label for="name">Branch Id</label>
-                        <input type="text" class="form-control" id="lastName" required [(ngModel)]=""
-                            name="lastName">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name">Branch Id</label>
-                        <input type="text" class="form-control" id="lastName" required [(ngModel)]="branches"
-                            name="lastName">
-                    </div> -->
-
-                    <br><button type="submit" class="btn btn-success">Submit</button>
                 </div>
 
                 <div class="col"></div>
@@ -70,6 +81,7 @@
         </div>
     </form>
 </div>
+
 
 <!-- <div [hidden]="!submitted">
     <h4>You submitted successfully!</h4>

@@ -158,3 +158,11 @@ a:hover {
         margin-bottom: 50px !important;
     }
 }
+.error{
+    text-align: center;
+    color: red;
+}
+.success{
+    text-align: center;
+    color: green;
+}

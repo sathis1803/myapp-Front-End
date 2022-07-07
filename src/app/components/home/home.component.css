@@ -1,4 +1,3 @@
-
 .btn-color{
     color: #ffff;
     cursor: pointer; 
@@ -7,9 +6,3 @@
 .btn-color:focus{
     box-shadow: none;
 }
-.custom{
-    margin: 0px 0px;
-}
-
-
-

@@ -1,12 +1,11 @@
 body {
-    color: #000;
     overflow-x: hidden;
     height: 100%;
     background-image: linear-gradient(to right, #D500F9, #FFD54F);
     background-repeat: no-repeat;
 }
 
-input,select, textarea {
+input, textarea {
     background-color: #F3E5F5;
     border-radius: 50px !important;
     padding: 12px 15px 12px 15px !important;
@@ -19,7 +18,7 @@ input,select, textarea {
     font-weight: 400;
 }
 
-input:focus, textarea:focus,select:focus {
+input:focus, textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -41,11 +40,15 @@ button:focus {
 }
 
 .card1 {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
     width: 50%;
     padding: 40px 30px 10px 30px;
 }
 
 .card2 {
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
     width: 50%;
     background-image: linear-gradient(to right, #FFD54F, #D500F9);
 }
@@ -86,7 +89,7 @@ button:focus {
     border-radius: 50px;
     color: #fff;
     background-image: linear-gradient(to right, #FFD54F, #D500F9);
-    padding: 10px 15px;
+    padding: 15px;
     cursor: pointer;
     border: none !important;
     margin-top: 40px;
@@ -157,4 +160,12 @@ a:hover {
         margin-top: 50px !important;
         margin-bottom: 50px !important;
     }
+}
+.error{
+    color: red;
+}
+.custom{
+    border: none;
+    background-color: white;
+    text-decoration: underline;
 }

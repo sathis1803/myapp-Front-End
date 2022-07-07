@@ -1,4 +1,4 @@
-input, textarea {
+input,select, textarea {
     background-color: #F3E5F5;
     border-radius: 50px !important;
     padding: 12px 15px 12px 15px !important;
@@ -11,7 +11,7 @@ input, textarea {
     font-weight: 400;
 }
 
-input:focus, textarea:focus {
+input:focus,select:focus, textarea:focus {
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
@@ -28,8 +28,8 @@ input:focus, textarea:focus {
     color: #fff;
     background-image: linear-gradient(to right, #FFD54F, #D500F9);
     padding: 15px 150px;
-    cursor: pointer;
     margin-left: 30px;
+    cursor: pointer;
     border: none !important;
 }
 
@@ -49,7 +49,4 @@ input:focus, textarea:focus {
     border-radius: 20px;
     border: 2px solid white;
     outline: 10px solid white;
-}
-.error{
-    color: red;
 }

@@ -1,0 +1,68 @@
+
+    <form style="border: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+
+                <div class="col cusborder">
+                    <div class="hel">
+                        <h3 style="text-align: center;font-style: italic;">Account Details</h3>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="accholname">Account Number</label>
+                            <input type="text" name="accno" id="accno" placeholder="Account Number"
+                                class="form-control" required [(ngModel)]="account.accNo" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="accholname">Acc Holder Name</label>
+                            <input type="text" name="accholname" id="accholname" placeholder="Account Holder Name"
+                                class="form-control" required [(ngModel)]="account.accHolderName" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="balance">Balance</label>
+                            <input type="number" class="form-control" id="balance" [(ngModel)]="account.balance"
+                                name="balance" placeholder="0.0" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="mobileno">Mobile Number</label>
+                            <input type="text" class="form-control" id="mobileno" [(ngModel)]="account.mobileNo"
+                                placeholder="Mobile Number" name="mobileno" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="panno">Pan Number</label>
+                            <input type="text" class="form-control" id="panno" [(ngModel)]="account.panNo"
+                                placeholder="Pan Number" name="panno" disabled>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="accType">Account Type</label>&nbsp;
+                            <select name="accType" id="accType" [(ngModel)]="account.accType" class="form-control" disabled>
+                                <option value="Savings">Savings</option>
+                                <option value="Current">Current</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted" for="accStatus">Account Status</label>&nbsp;
+                            <select name="accStatus" id="accStatus" [(ngModel)]="account.accStatus"
+                                class="form-control" disabled>
+                                <option value="true">Active</option>
+                                <option value="false">InActive</option>
+                            </select>
+                        </div>
+                        <label class="form-control-label text-muted">For Online Transactions Generate Username and Password</label>
+                        <button (click)="onGenerate()" class="btn btn-color" style="margin-top: 10px">Generate</button>
+                        <span class="form-control-label error" *ngIf="!isLoading">{{errorMessages}}</span>
+                        <span class="form-control-label success" *ngIf="!isLoadingSuccess">{{successMessage}}</span>
+                    </div>
+                </div>
+
+                <div class="col"></div>
+
+            </div>
+        </div>
+    </form>

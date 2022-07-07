@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-5">
+            <button type="submit" class="btn btn-color" (click)="onDepositeLink()">Deposit</button>
+            <button type="submit" class="btn btn-color" style="float: right;"
+                (click)="onWithdrawLink()">Withdraw</button>
+
+                <div class="card" [hidden]="!depositCard">
+                    <h3 style="text-align: center;font-style: italic;">Deposit</h3>
+
+                    <div class="card-body">
+                        <div class="col">
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="accNo">Account No</label>
+                                <input type="text" class="form-control" name="accNo" id="accNo" required
+                                    [(ngModel)]="transaction.accNo">
+                            </div>
+                
+                            <br>
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="amount">Amount</label>
+                                <input type="number" class="form-control" id="amount" required
+                                    [(ngModel)]="transaction.transAmount" name="amount">
+                            </div>
+
+                            <button type="submit" class="btn btn-color" (click)="onDeposit()">Deposit</button><br><br>
+                            <p class="form-control-label error" *ngIf="!depositMessage">{{errorMessage}}</p>
+                            <p class="form-control-label success" *ngIf="!depositMessage">{{successMessage}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" [hidden]="!withdrawCard">
+                    <h3 style="text-align: center;font-style: italic;">Withdraw</h3>
+
+                    <div class="card-body">
+                        <div class="col">
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="accNo">Account No</label>
+                                <input type="text" class="form-control" id="accNo" required
+                                    [(ngModel)]="transaction.accNo" name="accNo">
+                            </div><br>
+
+                            <div class="form-group">
+                                <label class="form-control-label" for="amount">Amount</label>
+                                <input type="text" class="form-control" id="amount" min="0" max="100000" required
+                                    [(ngModel)]="transaction.transAmount" name="amount">
+                            </div>
+
+                            <button type="submit" class="btn btn-color" (click)="onWithdraw()">Withdraw</button><br><br>
+                            <p class="form-control-label error" *ngIf="!depositMessage">{{errorMessage}}</p>
+                            <p class="form-control-label success" *ngIf="!depositMessage">{{successMessage}}</p>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- <div class="form-control-label" [hidden]="!depositmessageCard">
+                    <div style="text-align: center;color: blue;">{{transAmount}} Deposited
+                        Successfully...</div>
+                </div> -->
+                <!-- <div class="form-control-label" [hidden]="depositMessage">
+                    <div style="text-align: center;color:red">
+                        <p>{{errorMessage}}</p>
+                    </div>
+                </div> -->
+                <!-- <div class="card" [hidden]="!withdrawmessageCard">
+                    <div class="card-header" style="text-align: center;color: blue;">{{transAmount}} Withdrawn
+                        Successfully...</div>
+                </div> -->
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+
+
+
+
+

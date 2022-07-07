@@ -1,0 +1,101 @@
+<div class="container-fluid px-5 py-5 mx-auto my-auto" style="background-color: #323641;margin-top: 0;height: auto;">
+    
+        <div class="d-flex flex-lg-row flex-column-reverse my-0">
+            <div class="card card1">
+                <form (ngSubmit)="onSubmit()">
+                <div class="row justify-content-center my-auto">
+                    <div class="col-md-8 col-10 my-5">
+                        <!-- <h3 class="mb-5 text-center heading">We are Tidi</h3> -->
+  
+                        <h6 class="msg-info">Create Your Account</h6>
+  
+                        <div class="form-group">
+                            <label class="form-control-label text-muted">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required #firstName="ngModel" [(ngModel)]="branchadmin.firstName" placeholder="First Name" class="form-control">
+                        </div>
+                        <div *ngIf="!firstName?.valid && (firstName?.dirty || firstName?.touched) || onError" class="error">
+                            <div *ngIf="firstName.errors" class="form-control-label text-muted change">
+                            <span style="color: red;">FirstName Required!</span></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required #lastName="ngModel" [(ngModel)]="branchadmin.lastName" placeholder="Last Name" class="form-control">
+                        </div>
+                        <div *ngIf="!lastName?.valid && (lastName?.dirty || lastName?.touched) || onError" class="error">
+                            <div *ngIf="lastName.errors" class="form-control-label text-muted change">
+                            <span style="color: red;">LastName Required!</span></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted">Gmail</label>
+                            <input type="email" id="email" name="email" required #email="ngModel" [(ngModel)]="branchadmin.gmail" placeholder="email" class="form-control">
+                        </div>
+                        <div *ngIf="!email?.valid && (email?.dirty || email?.touched) || onError" class="error">
+                            <div *ngIf="email.errors" class="form-control-label text-muted change">
+                            <span style="color: red;">Valid Email is Required!</span></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted">Username</label>
+                            <input type="text" id="userName" name="userName" required #username="ngModel" [(ngModel)]="branchadmin.userName" placeholder="Username" class="form-control">
+                        </div>
+                        <div *ngIf="!username?.valid && (username?.dirty || username?.touched) || onError" class="error">
+                            <div *ngIf="username.errors" class="form-control-label text-muted change">
+                            <span style="color: red;">Username Required!</span></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label text-muted">Role</label>&nbsp;
+                            <select name="role" id="role" required #role="ngModel" [(ngModel)]="branchadmin.role" class="form-control" >
+                                <option value="Admin">Admin</option>
+                                <option value="Manager">Manager</option>
+                            </select>
+                        </div>
+                        <div *ngIf="!role?.valid && (role?.dirty || role?.touched) || onError" class="error">
+                            <div *ngIf="role.errors" class="form-control-label text-muted change">
+                            <span style="color: red;">Role Required!</span></div>
+                        </div>
+  
+                        <div class="form-group">
+                            <label class="form-control-label text-muted">Password</label>
+                            <input type="password" id="password" name="password" required #password="ngModel" [(ngModel)]="branchadmin.password" placeholder="Password" class="form-control">
+                        </div>
+                        <div *ngIf="!password?.valid && (password?.dirty || password?.touched) || onError" class="error">
+                            <div *ngIf="password.errors" class="form-control-label text-muted change">
+                            <span style="color: red;">Password Required!</span></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label error" *ngIf="!isLoading">{{errorMessage}}</label>
+                        </div>
+                        <div class="form-group">               
+                            <label class="form-control-label success" *ngIf="!isuccessLoading">{{successMessage}}</label>
+                        </div>
+
+                        <div class="row justify-content-center my-3 px-3">
+                            <button class="btn-block btn-color">Signup</button>
+                        </div>  
+
+                        <div class="row justify-content-center my-3 px-3">
+                            <button class="btn-block btn-color" (click)="onChanges()">Login</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </form>
+            </div>
+            <div class="card card2">
+                <div class="my-auto mx-md-5 px-md-5 right">
+                    <div style="margin: auto;">
+                        <img src="../../../assets/bank.png" alt="Bank" width="150px" style="margin-left: 150px;">
+                    </div>
+                    
+                    <h3 class="text-white text-center">Bank Management System</h3>
+                    <!-- <small class="text-white text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</small> -->
+                    <!-- <h3 class="text-white">We are more than just a company</h3>
+                    <small class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</small> -->
+                </div>
+            </div>
+        </div>
+  </div>

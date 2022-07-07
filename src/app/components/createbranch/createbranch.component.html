@@ -1,26 +1,39 @@
 
-<div [hidden]="submitted">
+<div>
     <form (ngSubmit)="onSubmit()" style="border: none;">
         <div class="container">
             <div class="row">
                 <div class="col"></div>
 
-                <div class="col">
-                    <h3 style="text-align: center;">Create Branch</h3>
+                <div class="col cusborder">
+                    <div class="hel">
+                    <h3 style="text-align: center;font-style: italic;">Create Branch</h3>
+
                     <div class="form-group">
-                        <label for="name">Branch Name</label>
-                        <input type="text" class="form-control" id="firstName" required [(ngModel)]="branch.branchName"
-                            name="firstName">
+                        <label class="form-control-label text-muted" for="branchname">Branch Name</label>
+                        <input type="text" name="branchName" id="branchname" placeholder="Branch Name" class="form-control" autocomplete="off" required #branchName="ngModel" [(ngModel)]="branch.branchName">
                     </div>
-
+                        <div *ngIf="!branchName?.valid && (branchName?.dirty || branchName?.touched) || onError" class="error">
+                            <div *ngIf="branchName.errors" class="form-control-label text-muted change">
+                            <span style="color: red;">Branch Name is required</span> 
+                            </div>
+                        </div>
                     <div class="form-group">
-                        <label for="name">Branch City</label>
-                        <input type="text" class="form-control" id="lastName" required [(ngModel)]="branch.branchCity"
-                            name="lastName">
-                    </div><br>
+                        <label class="form-control-label text-muted" for="branchcity">Branch City</label>
+                        <input type="text" class="form-control" name="branchcity" id="branchcity" placeholder="Branch City" autocomplete="off" required #branchcity="ngModel" [(ngModel)]="branch.branchCity"
+                            name="branchCity">
+                    </div>
+                    <div *ngIf="!branchcity?.valid && (branchcity?.dirty || branchcity?.touched) || onError" class="error">
+                        <div *ngIf="branchcity.errors" class="form-control-label text-muted change">
+                        <span style="color: red;">Branch City is required</span> 
+                        </div>
+                    </div>
+                    <p class="form-control-label error" *ngIf="!error">{{errorMessage}}</p>
+                    <br>
 
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-color">Submit</button><br><br>
                 </div>
+            </div>
 
                 <div class="col"></div>
 
@@ -29,7 +42,3 @@
     </form>
 </div>
 
-<div [hidden]="!submitted">
-    <h4>You submitted successfully!</h4>
-    <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
-</div>
